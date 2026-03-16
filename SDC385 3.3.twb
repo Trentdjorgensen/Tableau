@@ -1,0 +1,3276 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20261.26.0226.1626                               -->
+<workbook original-version='18.1' source-build='2026.1.0 (20261.26.0226.1626)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <RelationshipCalculations />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Author+ (GP_Bookshop)' inline='true' name='federated.1lkzh441vav1gy1h93z2t1yp8rm3' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='GP_Bookshop' name='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/trent/Downloads/GP_Bookshop.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Author' table='[Author$]' type='table'>
+            <columns gridOrigin='A1:F42:no:A1:F42:0' header='yes' outcome='6'>
+              <column datatype='string' name='AuthID' ordinal='0' />
+              <column datatype='string' name='First Name' ordinal='1' />
+              <column datatype='string' name='Last Name' ordinal='2' />
+              <column datatype='date' name='Birthday' ordinal='3' />
+              <column datatype='string' name='Country of Residence' ordinal='4' />
+              <column datatype='real' name='Hrs Writing per Day' ordinal='5' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Book' table='[Book$]' type='table'>
+            <columns gridOrigin='A1:C59:no:A1:C59:0' header='yes' outcome='2'>
+              <column datatype='string' name='BookID' ordinal='0' />
+              <column datatype='string' name='Title' ordinal='1' />
+              <column datatype='string' name='AuthID' ordinal='2' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Award' table='[Award$]' type='table'>
+            <columns gridOrigin='A1:C19:no:A1:C19:0' header='yes' outcome='6'>
+              <column datatype='string' name='Title' ordinal='0' />
+              <column datatype='string' name='Award Name' ordinal='1' />
+              <column datatype='integer' name='Year Won' ordinal='2' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Checkouts' table='[Checkouts$]' type='table'>
+            <columns gridOrigin='A1:C669:no:A1:C669:0' header='yes' outcome='6'>
+              <column datatype='string' name='BookID' ordinal='0' />
+              <column datatype='integer' name='CheckoutMonth' ordinal='1' />
+              <column datatype='integer' name='Number of Checkouts' ordinal='2' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Edition' table='[Edition$]' type='table'>
+            <columns gridOrigin='A1:H96:no:A1:H96:0' header='yes' outcome='6'>
+              <column datatype='string' name='ISBN' ordinal='0' />
+              <column datatype='string' name='BookID' ordinal='1' />
+              <column datatype='string' name='Format' ordinal='2' />
+              <column datatype='string' name='PubID' ordinal='3' />
+              <column datatype='date' name='Publication Date' ordinal='4' />
+              <column datatype='integer' name='Pages' ordinal='5' />
+              <column datatype='integer' name='Print Run Size (k)' ordinal='6' />
+              <column datatype='real' name='Price' ordinal='7' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Publisher' table='[Publisher$]' type='table'>
+            <columns gridOrigin='A1:G5:no:A1:G5:0' header='yes' outcome='6'>
+              <column datatype='string' name='PubID' ordinal='0' />
+              <column datatype='string' name='Publishing House' ordinal='1' />
+              <column datatype='string' name='City' ordinal='2' />
+              <column datatype='string' name='State' ordinal='3' />
+              <column datatype='string' name='Country' ordinal='4' />
+              <column datatype='integer' name='Year Established' ordinal='5' />
+              <column datatype='integer' name='Marketing Spend' ordinal='6' />
+            </columns>
+          </relation>
+          <relation all='true' connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' include-siblings='false' is-recursive='false' name='Union' path='' type='batch-union'>
+            <database-filter>
+              <expression op='='>
+                <expression op='GP_Bookshop.xlsx' />
+              </expression>
+            </database-filter>
+            <table-filter>
+              <expression op='='>
+                <expression op='Sales*' />
+              </expression>
+            </table-filter>
+            <columns header='yes'>
+              <column datatype='date' name='Sale Date' />
+              <column datatype='string' name='ISBN' />
+              <column datatype='real' name='Discount' />
+              <column datatype='string' name='ItemID' />
+              <column datatype='string' name='OrderID' />
+              <column datatype='string' name='Path' />
+              <column datatype='string' name='Sheet' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Info' table='[Info$]' type='table'>
+            <columns gridOrigin='A1:F59:no:A1:F59:0' header='yes' outcome='2'>
+              <column datatype='string' name='BookID1' ordinal='0' />
+              <column datatype='string' name='BookID2' ordinal='1' />
+              <column datatype='string' name='Genre' ordinal='2' />
+              <column datatype='string' name='SeriesID' ordinal='3' />
+              <column datatype='integer' name='Volume Number' ordinal='4' />
+              <column datatype='string' name='Staff Comment' ordinal='5' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Series' table='[Series$]' type='table'>
+            <columns gridOrigin='A1:D7:no:A1:D7:0' header='yes' outcome='6'>
+              <column datatype='string' name='SeriesID' ordinal='0' />
+              <column datatype='string' name='Series Name' ordinal='1' />
+              <column datatype='integer' name='Planned Volumes' ordinal='2' />
+              <column datatype='integer' name='Book Tour Events' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Ratings' table='[Ratings$]' type='table'>
+            <columns gridOrigin='A1:D10001:no:A1:D10001:0' header='yes' outcome='2'>
+              <column datatype='string' name='BookID' ordinal='0' />
+              <column datatype='integer' name='Rating' ordinal='1' />
+              <column datatype='integer' name='ReviewerID' ordinal='2' />
+              <column datatype='string' name='ReviewID' ordinal='3' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[AuthID (Book)]' value='[Book].[AuthID]' />
+          <map key='[AuthID]' value='[Author].[AuthID]' />
+          <map key='[Award Name]' value='[Award].[Award Name]' />
+          <map key='[Birthday]' value='[Author].[Birthday]' />
+          <map key='[Book Tour Events]' value='[Series].[Book Tour Events]' />
+          <map key='[BookID (Checkouts)]' value='[Checkouts].[BookID]' />
+          <map key='[BookID (Edition)]' value='[Edition].[BookID]' />
+          <map key='[BookID (Ratings)]' value='[Ratings].[BookID]' />
+          <map key='[BookID1]' value='[Info].[BookID1]' />
+          <map key='[BookID2]' value='[Info].[BookID2]' />
+          <map key='[BookID]' value='[Book].[BookID]' />
+          <map key='[CheckoutMonth]' value='[Checkouts].[CheckoutMonth]' />
+          <map key='[City]' value='[Publisher].[City]' />
+          <map key='[Country of Residence]' value='[Author].[Country of Residence]' />
+          <map key='[Country]' value='[Publisher].[Country]' />
+          <map key='[Discount]' value='[Union].[Discount]' />
+          <map key='[First Name]' value='[Author].[First Name]' />
+          <map key='[Format]' value='[Edition].[Format]' />
+          <map key='[Genre]' value='[Info].[Genre]' />
+          <map key='[Hrs Writing per Day]' value='[Author].[Hrs Writing per Day]' />
+          <map key='[ISBN (Union)]' value='[Union].[ISBN]' />
+          <map key='[ISBN]' value='[Edition].[ISBN]' />
+          <map key='[ItemID]' value='[Union].[ItemID]' />
+          <map key='[Last Name]' value='[Author].[Last Name]' />
+          <map key='[Marketing Spend]' value='[Publisher].[Marketing Spend]' />
+          <map key='[Number of Checkouts]' value='[Checkouts].[Number of Checkouts]' />
+          <map key='[OrderID]' value='[Union].[OrderID]' />
+          <map key='[Pages]' value='[Edition].[Pages]' />
+          <map key='[Path]' value='[Union].[Path]' />
+          <map key='[Planned Volumes]' value='[Series].[Planned Volumes]' />
+          <map key='[Price]' value='[Edition].[Price]' />
+          <map key='[Print Run Size (k)]' value='[Edition].[Print Run Size (k)]' />
+          <map key='[PubID (Publisher)]' value='[Publisher].[PubID]' />
+          <map key='[PubID]' value='[Edition].[PubID]' />
+          <map key='[Publication Date]' value='[Edition].[Publication Date]' />
+          <map key='[Publishing House]' value='[Publisher].[Publishing House]' />
+          <map key='[Rating]' value='[Ratings].[Rating]' />
+          <map key='[ReviewID]' value='[Ratings].[ReviewID]' />
+          <map key='[ReviewerID]' value='[Ratings].[ReviewerID]' />
+          <map key='[Sale Date]' value='[Union].[Sale Date]' />
+          <map key='[Series Name]' value='[Series].[Series Name]' />
+          <map key='[SeriesID (Series)]' value='[Series].[SeriesID]' />
+          <map key='[SeriesID]' value='[Info].[SeriesID]' />
+          <map key='[Sheet]' value='[Union].[Sheet]' />
+          <map key='[Staff Comment]' value='[Info].[Staff Comment]' />
+          <map key='[State]' value='[Publisher].[State]' />
+          <map key='[Title (Award)]' value='[Award].[Title]' />
+          <map key='[Title]' value='[Book].[Title]' />
+          <map key='[Volume Number]' value='[Info].[Volume Number]' />
+          <map key='[Year Established]' value='[Publisher].[Year Established]' />
+          <map key='[Year Won]' value='[Award].[Year Won]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Author]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:F42:no:A1:F42:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Book]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C59:no:A1:C59:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Award]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C19:no:A1:C19:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Checkouts]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:C669:no:A1:C669:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Edition]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:H96:no:A1:H96:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Publisher]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:G5:no:A1:G5:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Union]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Info]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:F59:no:A1:F59:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Series]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:D7:no:A1:D7:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Ratings]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:D10001:no:A1:D10001:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>2</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AuthID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[AuthID]</local-name>
+            <parent-name>[Author]</parent-name>
+            <remote-alias>AuthID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Author_6062FCA143D64F67B3DD8EB481B5102F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>First Name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[First Name]</local-name>
+            <parent-name>[Author]</parent-name>
+            <remote-alias>First Name</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Author_6062FCA143D64F67B3DD8EB481B5102F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Last Name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Last Name]</local-name>
+            <parent-name>[Author]</parent-name>
+            <remote-alias>Last Name</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Author_6062FCA143D64F67B3DD8EB481B5102F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Birthday</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Birthday]</local-name>
+            <parent-name>[Author]</parent-name>
+            <remote-alias>Birthday</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <object-id>[Author_6062FCA143D64F67B3DD8EB481B5102F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Country of Residence</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Country of Residence]</local-name>
+            <parent-name>[Author]</parent-name>
+            <remote-alias>Country of Residence</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Author_6062FCA143D64F67B3DD8EB481B5102F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Hrs Writing per Day</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Hrs Writing per Day]</local-name>
+            <parent-name>[Author]</parent-name>
+            <remote-alias>Hrs Writing per Day</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[Author_6062FCA143D64F67B3DD8EB481B5102F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>BookID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[BookID]</local-name>
+            <parent-name>[Book]</parent-name>
+            <remote-alias>BookID</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Book_6D0B8BBCBE034C139CEC4134C84889A1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Title</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Title]</local-name>
+            <parent-name>[Book]</parent-name>
+            <remote-alias>Title</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Book_6D0B8BBCBE034C139CEC4134C84889A1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AuthID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[AuthID (Book)]</local-name>
+            <parent-name>[Book]</parent-name>
+            <remote-alias>AuthID</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Book_6D0B8BBCBE034C139CEC4134C84889A1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Title</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Title (Award)]</local-name>
+            <parent-name>[Award]</parent-name>
+            <remote-alias>Title</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Award_4C04D7302D9541ECBF13E14A2AB9201F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Award Name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Award Name]</local-name>
+            <parent-name>[Award]</parent-name>
+            <remote-alias>Award Name</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Award_4C04D7302D9541ECBF13E14A2AB9201F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year Won</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year Won]</local-name>
+            <parent-name>[Award]</parent-name>
+            <remote-alias>Year Won</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Award_4C04D7302D9541ECBF13E14A2AB9201F]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>BookID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[BookID (Checkouts)]</local-name>
+            <parent-name>[Checkouts]</parent-name>
+            <remote-alias>BookID</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Checkouts_80B929CC8FF6426BB380DECBED3678F4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CheckoutMonth</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[CheckoutMonth]</local-name>
+            <parent-name>[Checkouts]</parent-name>
+            <remote-alias>CheckoutMonth</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Checkouts_80B929CC8FF6426BB380DECBED3678F4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Number of Checkouts</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Number of Checkouts]</local-name>
+            <parent-name>[Checkouts]</parent-name>
+            <remote-alias>Number of Checkouts</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Checkouts_80B929CC8FF6426BB380DECBED3678F4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ISBN</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[ISBN]</local-name>
+            <parent-name>[Edition]</parent-name>
+            <remote-alias>ISBN</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>BookID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[BookID (Edition)]</local-name>
+            <parent-name>[Edition]</parent-name>
+            <remote-alias>BookID</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Format</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Format]</local-name>
+            <parent-name>[Edition]</parent-name>
+            <remote-alias>Format</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PubID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[PubID]</local-name>
+            <parent-name>[Edition]</parent-name>
+            <remote-alias>PubID</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Publication Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Publication Date]</local-name>
+            <parent-name>[Edition]</parent-name>
+            <remote-alias>Publication Date</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;DATE&quot;</attribute>
+            </attributes>
+            <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Pages</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Pages]</local-name>
+            <parent-name>[Edition]</parent-name>
+            <remote-alias>Pages</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Print Run Size (k)</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Print Run Size (k)]</local-name>
+            <parent-name>[Edition]</parent-name>
+            <remote-alias>Print Run Size (k)</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Price]</local-name>
+            <parent-name>[Edition]</parent-name>
+            <remote-alias>Price</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>PubID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[PubID (Publisher)]</local-name>
+            <parent-name>[Publisher]</parent-name>
+            <remote-alias>PubID</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Publishing House</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Publishing House]</local-name>
+            <parent-name>[Publisher]</parent-name>
+            <remote-alias>Publishing House</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>City</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[City]</local-name>
+            <parent-name>[Publisher]</parent-name>
+            <remote-alias>City</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>State</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[State]</local-name>
+            <parent-name>[Publisher]</parent-name>
+            <remote-alias>State</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Country</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Country]</local-name>
+            <parent-name>[Publisher]</parent-name>
+            <remote-alias>Country</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year Established</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year Established]</local-name>
+            <parent-name>[Publisher]</parent-name>
+            <remote-alias>Year Established</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Marketing Spend</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Marketing Spend]</local-name>
+            <parent-name>[Publisher]</parent-name>
+            <remote-alias>Marketing Spend</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sale Date</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[Sale Date]</local-name>
+            <parent-name>[Union]</parent-name>
+            <remote-alias>Sale Date</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[_805F57F323BD4C86A899589230A20B9A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ISBN</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[ISBN (Union)]</local-name>
+            <parent-name>[Union]</parent-name>
+            <remote-alias>ISBN</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <object-id>[_805F57F323BD4C86A899589230A20B9A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Discount</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Discount]</local-name>
+            <parent-name>[Union]</parent-name>
+            <remote-alias>Discount</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[_805F57F323BD4C86A899589230A20B9A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ItemID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[ItemID]</local-name>
+            <parent-name>[Union]</parent-name>
+            <remote-alias>ItemID</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <object-id>[_805F57F323BD4C86A899589230A20B9A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>OrderID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[OrderID]</local-name>
+            <parent-name>[Union]</parent-name>
+            <remote-alias>OrderID</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <object-id>[_805F57F323BD4C86A899589230A20B9A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Path</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Path]</local-name>
+            <parent-name>[Union]</parent-name>
+            <remote-alias>Path</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <object-id>[_805F57F323BD4C86A899589230A20B9A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sheet</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Sheet]</local-name>
+            <parent-name>[Union]</parent-name>
+            <remote-alias>Sheet</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <object-id>[_805F57F323BD4C86A899589230A20B9A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>BookID1</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[BookID1]</local-name>
+            <parent-name>[Info]</parent-name>
+            <remote-alias>BookID1</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>BookID2</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[BookID2]</local-name>
+            <parent-name>[Info]</parent-name>
+            <remote-alias>BookID2</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Genre</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Genre]</local-name>
+            <parent-name>[Info]</parent-name>
+            <remote-alias>Genre</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SeriesID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[SeriesID]</local-name>
+            <parent-name>[Info]</parent-name>
+            <remote-alias>SeriesID</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Volume Number</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Volume Number]</local-name>
+            <parent-name>[Info]</parent-name>
+            <remote-alias>Volume Number</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Staff Comment</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Staff Comment]</local-name>
+            <parent-name>[Info]</parent-name>
+            <remote-alias>Staff Comment</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SeriesID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[SeriesID (Series)]</local-name>
+            <parent-name>[Series]</parent-name>
+            <remote-alias>SeriesID</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Series_026B60E95C604369A516B7791D404EC8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Series Name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Series Name]</local-name>
+            <parent-name>[Series]</parent-name>
+            <remote-alias>Series Name</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Series_026B60E95C604369A516B7791D404EC8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Planned Volumes</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Planned Volumes]</local-name>
+            <parent-name>[Series]</parent-name>
+            <remote-alias>Planned Volumes</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Series_026B60E95C604369A516B7791D404EC8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Book Tour Events</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Book Tour Events]</local-name>
+            <parent-name>[Series]</parent-name>
+            <remote-alias>Book Tour Events</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Series_026B60E95C604369A516B7791D404EC8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>BookID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[BookID (Ratings)]</local-name>
+            <parent-name>[Ratings]</parent-name>
+            <remote-alias>BookID</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Ratings_7C92F42995F04C0394341587A3745DBF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Rating</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Rating]</local-name>
+            <parent-name>[Ratings]</parent-name>
+            <remote-alias>Rating</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Ratings_7C92F42995F04C0394341587A3745DBF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ReviewerID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ReviewerID]</local-name>
+            <parent-name>[Ratings]</parent-name>
+            <remote-alias>ReviewerID</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[Ratings_7C92F42995F04C0394341587A3745DBF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ReviewID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[ReviewID]</local-name>
+            <parent-name>[Ratings]</parent-name>
+            <remote-alias>ReviewID</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[Ratings_7C92F42995F04C0394341587A3745DBF]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Auth ID' datatype='string' name='[AuthID]' role='dimension' type='nominal' />
+      <column caption='Book ID' datatype='string' name='[BookID]' role='dimension' type='nominal' />
+      <column caption='StudentID' datatype='string' name='[Calculation_1414296252239873]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='&quot;Trejor6927&quot;' />
+      </column>
+      <column caption='Current Date' datatype='string' datatype-customized='true' name='[Calculation_1414296252448770]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='STR(TODAY())' />
+      </column>
+      <column caption='Checkout Month' datatype='integer' name='[CheckoutMonth]' role='dimension' type='quantitative' />
+      <column datatype='string' name='[City]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column datatype='string' name='[Country of Residence]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Isbn' datatype='string' name='[ISBN]' role='dimension' type='nominal' />
+      <column caption='Pub ID' datatype='string' name='[PubID]' role='dimension' type='nominal' />
+      <column caption='Review ID' datatype='string' name='[ReviewID]' role='dimension' type='nominal' />
+      <column caption='Reviewer ID' datatype='integer' name='[ReviewerID]' role='dimension' type='ordinal' />
+      <column caption='Series ID' datatype='string' name='[SeriesID]' role='dimension' type='nominal' />
+      <column datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column datatype='integer' name='[Volume Number]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Year Established]' role='dimension' type='quantitative' />
+      <column datatype='integer' name='[Year Won]' role='dimension' type='quantitative' />
+      <column caption='Author' datatype='table' name='[__tableau_internal_object_id__].[Author_6062FCA143D64F67B3DD8EB481B5102F]' role='measure' type='quantitative' />
+      <column caption='Award' datatype='table' name='[__tableau_internal_object_id__].[Award_4C04D7302D9541ECBF13E14A2AB9201F]' role='measure' type='quantitative' />
+      <column caption='Book' datatype='table' name='[__tableau_internal_object_id__].[Book_6D0B8BBCBE034C139CEC4134C84889A1]' role='measure' type='quantitative' />
+      <column caption='Checkouts' datatype='table' name='[__tableau_internal_object_id__].[Checkouts_80B929CC8FF6426BB380DECBED3678F4]' role='measure' type='quantitative' />
+      <column caption='Edition' datatype='table' name='[__tableau_internal_object_id__].[Edition_CE1F1ACAB5974A23B8A4F6C382698304]' role='measure' type='quantitative' />
+      <column caption='Info' datatype='table' name='[__tableau_internal_object_id__].[Info_971762ABC34C4B0DBBA83CDBED8A92F1]' role='measure' type='quantitative' />
+      <column caption='Publisher' datatype='table' name='[__tableau_internal_object_id__].[Publisher_3100E324F59541EEAFECEDA10FE781A4]' role='measure' type='quantitative' />
+      <column caption='Ratings' datatype='table' name='[__tableau_internal_object_id__].[Ratings_7C92F42995F04C0394341587A3745DBF]' role='measure' type='quantitative' />
+      <column caption='Series' datatype='table' name='[__tableau_internal_object_id__].[Series_026B60E95C604369A516B7791D404EC8]' role='measure' type='quantitative' />
+      <column caption='Sales' datatype='table' name='[__tableau_internal_object_id__].[_805F57F323BD4C86A899589230A20B9A]' role='measure' type='quantitative' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/trent/AppData/Local/Temp/TableauTemp/#TableauTemp_0mhhik90fthgpl19ppp6l1nmckf5.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='03/16/2026 03:01:03 PM' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='Author_6062FCA143D64F67B3DD8EB481B5102F' table='[Extract].[Author_6062FCA143D64F67B3DD8EB481B5102F]' type='table' />
+            <relation name='Book_6D0B8BBCBE034C139CEC4134C84889A1' table='[Extract].[Book_6D0B8BBCBE034C139CEC4134C84889A1]' type='table' />
+            <relation name='Award_4C04D7302D9541ECBF13E14A2AB9201F' table='[Extract].[Award_4C04D7302D9541ECBF13E14A2AB9201F]' type='table' />
+            <relation name='Checkouts_80B929CC8FF6426BB380DECBED3678F4' table='[Extract].[Checkouts_80B929CC8FF6426BB380DECBED3678F4]' type='table' />
+            <relation name='Edition_CE1F1ACAB5974A23B8A4F6C382698304' table='[Extract].[Edition_CE1F1ACAB5974A23B8A4F6C382698304]' type='table' />
+            <relation name='Publisher_3100E324F59541EEAFECEDA10FE781A4' table='[Extract].[Publisher_3100E324F59541EEAFECEDA10FE781A4]' type='table' />
+            <relation name='_805F57F323BD4C86A899589230A20B9A' table='[Extract].[_805F57F323BD4C86A899589230A20B9A]' type='table' />
+            <relation name='Info_971762ABC34C4B0DBBA83CDBED8A92F1' table='[Extract].[Info_971762ABC34C4B0DBBA83CDBED8A92F1]' type='table' />
+            <relation name='Series_026B60E95C604369A516B7791D404EC8' table='[Extract].[Series_026B60E95C604369A516B7791D404EC8]' type='table' />
+            <relation name='Ratings_7C92F42995F04C0394341587A3745DBF' table='[Extract].[Ratings_7C92F42995F04C0394341587A3745DBF]' type='table' />
+          </relation>
+          <cols>
+            <map key='[AuthID (Book)]' value='[Book_6D0B8BBCBE034C139CEC4134C84889A1].[AuthID]' />
+            <map key='[AuthID]' value='[Author_6062FCA143D64F67B3DD8EB481B5102F].[AuthID]' />
+            <map key='[Award Name]' value='[Award_4C04D7302D9541ECBF13E14A2AB9201F].[Award Name]' />
+            <map key='[Birthday]' value='[Author_6062FCA143D64F67B3DD8EB481B5102F].[Birthday]' />
+            <map key='[Book Tour Events]' value='[Series_026B60E95C604369A516B7791D404EC8].[Book Tour Events]' />
+            <map key='[BookID (Checkouts)]' value='[Checkouts_80B929CC8FF6426BB380DECBED3678F4].[BookID]' />
+            <map key='[BookID (Edition)]' value='[Edition_CE1F1ACAB5974A23B8A4F6C382698304].[BookID]' />
+            <map key='[BookID (Ratings)]' value='[Ratings_7C92F42995F04C0394341587A3745DBF].[BookID]' />
+            <map key='[BookID1]' value='[Info_971762ABC34C4B0DBBA83CDBED8A92F1].[BookID1]' />
+            <map key='[BookID2]' value='[Info_971762ABC34C4B0DBBA83CDBED8A92F1].[BookID2]' />
+            <map key='[BookID]' value='[Book_6D0B8BBCBE034C139CEC4134C84889A1].[BookID]' />
+            <map key='[CheckoutMonth]' value='[Checkouts_80B929CC8FF6426BB380DECBED3678F4].[CheckoutMonth]' />
+            <map key='[City]' value='[Publisher_3100E324F59541EEAFECEDA10FE781A4].[City]' />
+            <map key='[Country of Residence]' value='[Author_6062FCA143D64F67B3DD8EB481B5102F].[Country of Residence]' />
+            <map key='[Country]' value='[Publisher_3100E324F59541EEAFECEDA10FE781A4].[Country]' />
+            <map key='[Discount]' value='[_805F57F323BD4C86A899589230A20B9A].[Discount]' />
+            <map key='[First Name]' value='[Author_6062FCA143D64F67B3DD8EB481B5102F].[First Name]' />
+            <map key='[Format]' value='[Edition_CE1F1ACAB5974A23B8A4F6C382698304].[Format]' />
+            <map key='[Genre]' value='[Info_971762ABC34C4B0DBBA83CDBED8A92F1].[Genre]' />
+            <map key='[Hrs Writing per Day]' value='[Author_6062FCA143D64F67B3DD8EB481B5102F].[Hrs Writing per Day]' />
+            <map key='[ISBN (Union)]' value='[_805F57F323BD4C86A899589230A20B9A].[ISBN]' />
+            <map key='[ISBN]' value='[Edition_CE1F1ACAB5974A23B8A4F6C382698304].[ISBN]' />
+            <map key='[ItemID]' value='[_805F57F323BD4C86A899589230A20B9A].[ItemID]' />
+            <map key='[Last Name]' value='[Author_6062FCA143D64F67B3DD8EB481B5102F].[Last Name]' />
+            <map key='[Marketing Spend]' value='[Publisher_3100E324F59541EEAFECEDA10FE781A4].[Marketing Spend]' />
+            <map key='[Number of Checkouts]' value='[Checkouts_80B929CC8FF6426BB380DECBED3678F4].[Number of Checkouts]' />
+            <map key='[OrderID]' value='[_805F57F323BD4C86A899589230A20B9A].[OrderID]' />
+            <map key='[Pages]' value='[Edition_CE1F1ACAB5974A23B8A4F6C382698304].[Pages]' />
+            <map key='[Path]' value='[_805F57F323BD4C86A899589230A20B9A].[Path]' />
+            <map key='[Planned Volumes]' value='[Series_026B60E95C604369A516B7791D404EC8].[Planned Volumes]' />
+            <map key='[Price]' value='[Edition_CE1F1ACAB5974A23B8A4F6C382698304].[Price]' />
+            <map key='[Print Run Size (k)]' value='[Edition_CE1F1ACAB5974A23B8A4F6C382698304].[Print Run Size (k)]' />
+            <map key='[PubID (Publisher)]' value='[Publisher_3100E324F59541EEAFECEDA10FE781A4].[PubID]' />
+            <map key='[PubID]' value='[Edition_CE1F1ACAB5974A23B8A4F6C382698304].[PubID]' />
+            <map key='[Publication Date]' value='[Edition_CE1F1ACAB5974A23B8A4F6C382698304].[Publication Date]' />
+            <map key='[Publishing House]' value='[Publisher_3100E324F59541EEAFECEDA10FE781A4].[Publishing House]' />
+            <map key='[Rating]' value='[Ratings_7C92F42995F04C0394341587A3745DBF].[Rating]' />
+            <map key='[ReviewID]' value='[Ratings_7C92F42995F04C0394341587A3745DBF].[ReviewID]' />
+            <map key='[ReviewerID]' value='[Ratings_7C92F42995F04C0394341587A3745DBF].[ReviewerID]' />
+            <map key='[Sale Date]' value='[_805F57F323BD4C86A899589230A20B9A].[Sale Date]' />
+            <map key='[Series Name]' value='[Series_026B60E95C604369A516B7791D404EC8].[Series Name]' />
+            <map key='[SeriesID (Series)]' value='[Series_026B60E95C604369A516B7791D404EC8].[SeriesID]' />
+            <map key='[SeriesID]' value='[Info_971762ABC34C4B0DBBA83CDBED8A92F1].[SeriesID]' />
+            <map key='[Sheet]' value='[_805F57F323BD4C86A899589230A20B9A].[Sheet]' />
+            <map key='[Staff Comment]' value='[Info_971762ABC34C4B0DBBA83CDBED8A92F1].[Staff Comment]' />
+            <map key='[State]' value='[Publisher_3100E324F59541EEAFECEDA10FE781A4].[State]' />
+            <map key='[Title (Award)]' value='[Award_4C04D7302D9541ECBF13E14A2AB9201F].[Title]' />
+            <map key='[Title]' value='[Book_6D0B8BBCBE034C139CEC4134C84889A1].[Title]' />
+            <map key='[Volume Number]' value='[Info_971762ABC34C4B0DBBA83CDBED8A92F1].[Volume Number]' />
+            <map key='[Year Established]' value='[Publisher_3100E324F59541EEAFECEDA10FE781A4].[Year Established]' />
+            <map key='[Year Won]' value='[Award_4C04D7302D9541ECBF13E14A2AB9201F].[Year Won]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>AuthID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[AuthID]</local-name>
+              <parent-name>[Author_6062FCA143D64F67B3DD8EB481B5102F]</parent-name>
+              <remote-alias>AuthID</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Author</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>41</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Author_6062FCA143D64F67B3DD8EB481B5102F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>First Name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[First Name]</local-name>
+              <parent-name>[Author_6062FCA143D64F67B3DD8EB481B5102F]</parent-name>
+              <remote-alias>First Name</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Author</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>40</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Author_6062FCA143D64F67B3DD8EB481B5102F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Last Name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Last Name]</local-name>
+              <parent-name>[Author_6062FCA143D64F67B3DD8EB481B5102F]</parent-name>
+              <remote-alias>Last Name</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Author</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>41</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Author_6062FCA143D64F67B3DD8EB481B5102F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Birthday</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Birthday]</local-name>
+              <parent-name>[Author_6062FCA143D64F67B3DD8EB481B5102F]</parent-name>
+              <remote-alias>Birthday</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Author</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>41</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Author_6062FCA143D64F67B3DD8EB481B5102F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Country of Residence</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Country of Residence]</local-name>
+              <parent-name>[Author_6062FCA143D64F67B3DD8EB481B5102F]</parent-name>
+              <remote-alias>Country of Residence</remote-alias>
+              <ordinal>4</ordinal>
+              <family>Author</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Author_6062FCA143D64F67B3DD8EB481B5102F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Hrs Writing per Day</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Hrs Writing per Day]</local-name>
+              <parent-name>[Author_6062FCA143D64F67B3DD8EB481B5102F]</parent-name>
+              <remote-alias>Hrs Writing per Day</remote-alias>
+              <ordinal>5</ordinal>
+              <family>Author</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>15</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Author_6062FCA143D64F67B3DD8EB481B5102F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>BookID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[BookID]</local-name>
+              <parent-name>[Book_6D0B8BBCBE034C139CEC4134C84889A1]</parent-name>
+              <remote-alias>BookID</remote-alias>
+              <ordinal>6</ordinal>
+              <family>Book</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>58</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Book_6D0B8BBCBE034C139CEC4134C84889A1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Title</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Title]</local-name>
+              <parent-name>[Book_6D0B8BBCBE034C139CEC4134C84889A1]</parent-name>
+              <remote-alias>Title</remote-alias>
+              <ordinal>7</ordinal>
+              <family>Book</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>58</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Book_6D0B8BBCBE034C139CEC4134C84889A1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>AuthID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[AuthID (Book)]</local-name>
+              <parent-name>[Book_6D0B8BBCBE034C139CEC4134C84889A1]</parent-name>
+              <remote-alias>AuthID</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Book</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>34</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Book_6D0B8BBCBE034C139CEC4134C84889A1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Title</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Title (Award)]</local-name>
+              <parent-name>[Award_4C04D7302D9541ECBF13E14A2AB9201F]</parent-name>
+              <remote-alias>Title</remote-alias>
+              <ordinal>9</ordinal>
+              <family>Award</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>17</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Award_4C04D7302D9541ECBF13E14A2AB9201F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Award Name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Award Name]</local-name>
+              <parent-name>[Award_4C04D7302D9541ECBF13E14A2AB9201F]</parent-name>
+              <remote-alias>Award Name</remote-alias>
+              <ordinal>10</ordinal>
+              <family>Award</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Award_4C04D7302D9541ECBF13E14A2AB9201F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Year Won</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Year Won]</local-name>
+              <parent-name>[Award_4C04D7302D9541ECBF13E14A2AB9201F]</parent-name>
+              <remote-alias>Year Won</remote-alias>
+              <ordinal>11</ordinal>
+              <family>Award</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>11</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Award_4C04D7302D9541ECBF13E14A2AB9201F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>BookID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[BookID (Checkouts)]</local-name>
+              <parent-name>[Checkouts_80B929CC8FF6426BB380DECBED3678F4]</parent-name>
+              <remote-alias>BookID</remote-alias>
+              <ordinal>12</ordinal>
+              <family>Checkouts</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>57</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Checkouts_80B929CC8FF6426BB380DECBED3678F4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>CheckoutMonth</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[CheckoutMonth]</local-name>
+              <parent-name>[Checkouts_80B929CC8FF6426BB380DECBED3678F4]</parent-name>
+              <remote-alias>CheckoutMonth</remote-alias>
+              <ordinal>13</ordinal>
+              <family>Checkouts</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Checkouts_80B929CC8FF6426BB380DECBED3678F4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Number of Checkouts</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Number of Checkouts]</local-name>
+              <parent-name>[Checkouts_80B929CC8FF6426BB380DECBED3678F4]</parent-name>
+              <remote-alias>Number of Checkouts</remote-alias>
+              <ordinal>14</ordinal>
+              <family>Checkouts</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>85</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Checkouts_80B929CC8FF6426BB380DECBED3678F4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ISBN</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[ISBN]</local-name>
+              <parent-name>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</parent-name>
+              <remote-alias>ISBN</remote-alias>
+              <ordinal>15</ordinal>
+              <family>Edition</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>95</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>BookID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[BookID (Edition)]</local-name>
+              <parent-name>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</parent-name>
+              <remote-alias>BookID</remote-alias>
+              <ordinal>16</ordinal>
+              <family>Edition</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>57</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Format</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Format]</local-name>
+              <parent-name>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</parent-name>
+              <remote-alias>Format</remote-alias>
+              <ordinal>17</ordinal>
+              <family>Edition</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>PubID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[PubID]</local-name>
+              <parent-name>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</parent-name>
+              <remote-alias>PubID</remote-alias>
+              <ordinal>18</ordinal>
+              <family>Edition</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Publication Date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Publication Date]</local-name>
+              <parent-name>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</parent-name>
+              <remote-alias>Publication Date</remote-alias>
+              <ordinal>19</ordinal>
+              <family>Edition</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>93</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Pages</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Pages]</local-name>
+              <parent-name>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</parent-name>
+              <remote-alias>Pages</remote-alias>
+              <ordinal>20</ordinal>
+              <family>Edition</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>81</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Print Run Size (k)</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Print Run Size (k)]</local-name>
+              <parent-name>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</parent-name>
+              <remote-alias>Print Run Size (k)</remote-alias>
+              <ordinal>21</ordinal>
+              <family>Edition</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>34</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Price</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Price]</local-name>
+              <parent-name>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</parent-name>
+              <remote-alias>Price</remote-alias>
+              <ordinal>22</ordinal>
+              <family>Edition</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>25</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Edition_CE1F1ACAB5974A23B8A4F6C382698304]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>PubID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[PubID (Publisher)]</local-name>
+              <parent-name>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</parent-name>
+              <remote-alias>PubID</remote-alias>
+              <ordinal>23</ordinal>
+              <family>Publisher</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Publishing House</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Publishing House]</local-name>
+              <parent-name>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</parent-name>
+              <remote-alias>Publishing House</remote-alias>
+              <ordinal>24</ordinal>
+              <family>Publisher</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>City</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[City]</local-name>
+              <parent-name>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</parent-name>
+              <remote-alias>City</remote-alias>
+              <ordinal>25</ordinal>
+              <family>Publisher</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>State</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[State]</local-name>
+              <parent-name>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</parent-name>
+              <remote-alias>State</remote-alias>
+              <ordinal>26</ordinal>
+              <family>Publisher</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Country</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Country]</local-name>
+              <parent-name>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</parent-name>
+              <remote-alias>Country</remote-alias>
+              <ordinal>27</ordinal>
+              <family>Publisher</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Year Established</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Year Established]</local-name>
+              <parent-name>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</parent-name>
+              <remote-alias>Year Established</remote-alias>
+              <ordinal>28</ordinal>
+              <family>Publisher</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Marketing Spend</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Marketing Spend]</local-name>
+              <parent-name>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</parent-name>
+              <remote-alias>Marketing Spend</remote-alias>
+              <ordinal>29</ordinal>
+              <family>Publisher</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Publisher_3100E324F59541EEAFECEDA10FE781A4]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sale Date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[Sale Date]</local-name>
+              <parent-name>[_805F57F323BD4C86A899589230A20B9A]</parent-name>
+              <remote-alias>Sale Date</remote-alias>
+              <ordinal>30</ordinal>
+              <family>Union</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>769</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[_805F57F323BD4C86A899589230A20B9A]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ISBN</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[ISBN (Union)]</local-name>
+              <parent-name>[_805F57F323BD4C86A899589230A20B9A]</parent-name>
+              <remote-alias>ISBN</remote-alias>
+              <ordinal>31</ordinal>
+              <family>Union</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>140</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[_805F57F323BD4C86A899589230A20B9A]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Discount</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Discount]</local-name>
+              <parent-name>[_805F57F323BD4C86A899589230A20B9A]</parent-name>
+              <remote-alias>Discount</remote-alias>
+              <ordinal>32</ordinal>
+              <family>Union</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[_805F57F323BD4C86A899589230A20B9A]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ItemID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[ItemID]</local-name>
+              <parent-name>[_805F57F323BD4C86A899589230A20B9A]</parent-name>
+              <remote-alias>ItemID</remote-alias>
+              <ordinal>33</ordinal>
+              <family>Union</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>56350</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[_805F57F323BD4C86A899589230A20B9A]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>OrderID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[OrderID]</local-name>
+              <parent-name>[_805F57F323BD4C86A899589230A20B9A]</parent-name>
+              <remote-alias>OrderID</remote-alias>
+              <ordinal>34</ordinal>
+              <family>Union</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>50679</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[_805F57F323BD4C86A899589230A20B9A]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Path</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Path]</local-name>
+              <parent-name>[_805F57F323BD4C86A899589230A20B9A]</parent-name>
+              <remote-alias>Path</remote-alias>
+              <ordinal>35</ordinal>
+              <family>Union</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[_805F57F323BD4C86A899589230A20B9A]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Sheet</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Sheet]</local-name>
+              <parent-name>[_805F57F323BD4C86A899589230A20B9A]</parent-name>
+              <remote-alias>Sheet</remote-alias>
+              <ordinal>36</ordinal>
+              <family>Union</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[_805F57F323BD4C86A899589230A20B9A]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>BookID1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[BookID1]</local-name>
+              <parent-name>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</parent-name>
+              <remote-alias>BookID1</remote-alias>
+              <ordinal>37</ordinal>
+              <family>Info</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>51</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>BookID2</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[BookID2]</local-name>
+              <parent-name>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</parent-name>
+              <remote-alias>BookID2</remote-alias>
+              <ordinal>38</ordinal>
+              <family>Info</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>58</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Genre</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Genre]</local-name>
+              <parent-name>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</parent-name>
+              <remote-alias>Genre</remote-alias>
+              <ordinal>39</ordinal>
+              <family>Info</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>SeriesID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[SeriesID]</local-name>
+              <parent-name>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</parent-name>
+              <remote-alias>SeriesID</remote-alias>
+              <ordinal>40</ordinal>
+              <family>Info</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>7</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Volume Number</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Volume Number]</local-name>
+              <parent-name>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</parent-name>
+              <remote-alias>Volume Number</remote-alias>
+              <ordinal>41</ordinal>
+              <family>Info</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Staff Comment</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Staff Comment]</local-name>
+              <parent-name>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</parent-name>
+              <remote-alias>Staff Comment</remote-alias>
+              <ordinal>42</ordinal>
+              <family>Info</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>33</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Info_971762ABC34C4B0DBBA83CDBED8A92F1]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>SeriesID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[SeriesID (Series)]</local-name>
+              <parent-name>[Series_026B60E95C604369A516B7791D404EC8]</parent-name>
+              <remote-alias>SeriesID</remote-alias>
+              <ordinal>43</ordinal>
+              <family>Series</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Series_026B60E95C604369A516B7791D404EC8]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Series Name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Series Name]</local-name>
+              <parent-name>[Series_026B60E95C604369A516B7791D404EC8]</parent-name>
+              <remote-alias>Series Name</remote-alias>
+              <ordinal>44</ordinal>
+              <family>Series</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Series_026B60E95C604369A516B7791D404EC8]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Planned Volumes</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Planned Volumes]</local-name>
+              <parent-name>[Series_026B60E95C604369A516B7791D404EC8]</parent-name>
+              <remote-alias>Planned Volumes</remote-alias>
+              <ordinal>45</ordinal>
+              <family>Series</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Series_026B60E95C604369A516B7791D404EC8]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Book Tour Events</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Book Tour Events]</local-name>
+              <parent-name>[Series_026B60E95C604369A516B7791D404EC8]</parent-name>
+              <remote-alias>Book Tour Events</remote-alias>
+              <ordinal>46</ordinal>
+              <family>Series</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>6</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Series_026B60E95C604369A516B7791D404EC8]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>BookID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[BookID (Ratings)]</local-name>
+              <parent-name>[Ratings_7C92F42995F04C0394341587A3745DBF]</parent-name>
+              <remote-alias>BookID</remote-alias>
+              <ordinal>47</ordinal>
+              <family>Ratings</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>56</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Ratings_7C92F42995F04C0394341587A3745DBF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Rating</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Rating]</local-name>
+              <parent-name>[Ratings_7C92F42995F04C0394341587A3745DBF]</parent-name>
+              <remote-alias>Rating</remote-alias>
+              <ordinal>48</ordinal>
+              <family>Ratings</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Ratings_7C92F42995F04C0394341587A3745DBF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ReviewerID</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[ReviewerID]</local-name>
+              <parent-name>[Ratings_7C92F42995F04C0394341587A3745DBF]</parent-name>
+              <remote-alias>ReviewerID</remote-alias>
+              <ordinal>49</ordinal>
+              <family>Ratings</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>27711</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[Ratings_7C92F42995F04C0394341587A3745DBF]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ReviewID</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[ReviewID]</local-name>
+              <parent-name>[Ratings_7C92F42995F04C0394341587A3745DBF]</parent-name>
+              <remote-alias>ReviewID</remote-alias>
+              <ordinal>50</ordinal>
+              <family>Ratings</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>50330</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <object-id>[Ratings_7C92F42995F04C0394341587A3745DBF]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='Author' id='Author_6062FCA143D64F67B3DD8EB481B5102F'>
+            <properties context=''>
+              <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Author' table='[Author$]' type='table'>
+                <columns gridOrigin='A1:F42:no:A1:F42:0' header='yes' outcome='6'>
+                  <column datatype='string' name='AuthID' ordinal='0' />
+                  <column datatype='string' name='First Name' ordinal='1' />
+                  <column datatype='string' name='Last Name' ordinal='2' />
+                  <column datatype='date' name='Birthday' ordinal='3' />
+                  <column datatype='string' name='Country of Residence' ordinal='4' />
+                  <column datatype='real' name='Hrs Writing per Day' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Author_6062FCA143D64F67B3DD8EB481B5102F' table='[Extract].[Author_6062FCA143D64F67B3DD8EB481B5102F]' type='table' />
+            </properties>
+          </object>
+          <object caption='Award' id='Award_4C04D7302D9541ECBF13E14A2AB9201F'>
+            <properties context=''>
+              <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Award' table='[Award$]' type='table'>
+                <columns gridOrigin='A1:C19:no:A1:C19:0' header='yes' outcome='6'>
+                  <column datatype='string' name='Title' ordinal='0' />
+                  <column datatype='string' name='Award Name' ordinal='1' />
+                  <column datatype='integer' name='Year Won' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Award_4C04D7302D9541ECBF13E14A2AB9201F' table='[Extract].[Award_4C04D7302D9541ECBF13E14A2AB9201F]' type='table' />
+            </properties>
+          </object>
+          <object caption='Book' id='Book_6D0B8BBCBE034C139CEC4134C84889A1'>
+            <properties context=''>
+              <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Book' table='[Book$]' type='table'>
+                <columns gridOrigin='A1:C59:no:A1:C59:0' header='yes' outcome='2'>
+                  <column datatype='string' name='BookID' ordinal='0' />
+                  <column datatype='string' name='Title' ordinal='1' />
+                  <column datatype='string' name='AuthID' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Book_6D0B8BBCBE034C139CEC4134C84889A1' table='[Extract].[Book_6D0B8BBCBE034C139CEC4134C84889A1]' type='table' />
+            </properties>
+          </object>
+          <object caption='Checkouts' id='Checkouts_80B929CC8FF6426BB380DECBED3678F4'>
+            <properties context=''>
+              <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Checkouts' table='[Checkouts$]' type='table'>
+                <columns gridOrigin='A1:C669:no:A1:C669:0' header='yes' outcome='6'>
+                  <column datatype='string' name='BookID' ordinal='0' />
+                  <column datatype='integer' name='CheckoutMonth' ordinal='1' />
+                  <column datatype='integer' name='Number of Checkouts' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Checkouts_80B929CC8FF6426BB380DECBED3678F4' table='[Extract].[Checkouts_80B929CC8FF6426BB380DECBED3678F4]' type='table' />
+            </properties>
+          </object>
+          <object caption='Edition' id='Edition_CE1F1ACAB5974A23B8A4F6C382698304'>
+            <properties context=''>
+              <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Edition' table='[Edition$]' type='table'>
+                <columns gridOrigin='A1:H96:no:A1:H96:0' header='yes' outcome='6'>
+                  <column datatype='string' name='ISBN' ordinal='0' />
+                  <column datatype='string' name='BookID' ordinal='1' />
+                  <column datatype='string' name='Format' ordinal='2' />
+                  <column datatype='string' name='PubID' ordinal='3' />
+                  <column datatype='date' name='Publication Date' ordinal='4' />
+                  <column datatype='integer' name='Pages' ordinal='5' />
+                  <column datatype='integer' name='Print Run Size (k)' ordinal='6' />
+                  <column datatype='real' name='Price' ordinal='7' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Edition_CE1F1ACAB5974A23B8A4F6C382698304' table='[Extract].[Edition_CE1F1ACAB5974A23B8A4F6C382698304]' type='table' />
+            </properties>
+          </object>
+          <object caption='Info' id='Info_971762ABC34C4B0DBBA83CDBED8A92F1'>
+            <properties context=''>
+              <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Info' table='[Info$]' type='table'>
+                <columns gridOrigin='A1:F59:no:A1:F59:0' header='yes' outcome='2'>
+                  <column datatype='string' name='BookID1' ordinal='0' />
+                  <column datatype='string' name='BookID2' ordinal='1' />
+                  <column datatype='string' name='Genre' ordinal='2' />
+                  <column datatype='string' name='SeriesID' ordinal='3' />
+                  <column datatype='integer' name='Volume Number' ordinal='4' />
+                  <column datatype='string' name='Staff Comment' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Info_971762ABC34C4B0DBBA83CDBED8A92F1' table='[Extract].[Info_971762ABC34C4B0DBBA83CDBED8A92F1]' type='table' />
+            </properties>
+          </object>
+          <object caption='Publisher' id='Publisher_3100E324F59541EEAFECEDA10FE781A4'>
+            <properties context=''>
+              <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Publisher' table='[Publisher$]' type='table'>
+                <columns gridOrigin='A1:G5:no:A1:G5:0' header='yes' outcome='6'>
+                  <column datatype='string' name='PubID' ordinal='0' />
+                  <column datatype='string' name='Publishing House' ordinal='1' />
+                  <column datatype='string' name='City' ordinal='2' />
+                  <column datatype='string' name='State' ordinal='3' />
+                  <column datatype='string' name='Country' ordinal='4' />
+                  <column datatype='integer' name='Year Established' ordinal='5' />
+                  <column datatype='integer' name='Marketing Spend' ordinal='6' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Publisher_3100E324F59541EEAFECEDA10FE781A4' table='[Extract].[Publisher_3100E324F59541EEAFECEDA10FE781A4]' type='table' />
+            </properties>
+          </object>
+          <object caption='Ratings' id='Ratings_7C92F42995F04C0394341587A3745DBF'>
+            <properties context=''>
+              <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Ratings' table='[Ratings$]' type='table'>
+                <columns gridOrigin='A1:D10001:no:A1:D10001:0' header='yes' outcome='2'>
+                  <column datatype='string' name='BookID' ordinal='0' />
+                  <column datatype='integer' name='Rating' ordinal='1' />
+                  <column datatype='integer' name='ReviewerID' ordinal='2' />
+                  <column datatype='string' name='ReviewID' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Ratings_7C92F42995F04C0394341587A3745DBF' table='[Extract].[Ratings_7C92F42995F04C0394341587A3745DBF]' type='table' />
+            </properties>
+          </object>
+          <object caption='Series' id='Series_026B60E95C604369A516B7791D404EC8'>
+            <properties context=''>
+              <relation connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' name='Series' table='[Series$]' type='table'>
+                <columns gridOrigin='A1:D7:no:A1:D7:0' header='yes' outcome='6'>
+                  <column datatype='string' name='SeriesID' ordinal='0' />
+                  <column datatype='string' name='Series Name' ordinal='1' />
+                  <column datatype='integer' name='Planned Volumes' ordinal='2' />
+                  <column datatype='integer' name='Book Tour Events' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Series_026B60E95C604369A516B7791D404EC8' table='[Extract].[Series_026B60E95C604369A516B7791D404EC8]' type='table' />
+            </properties>
+          </object>
+          <object caption='Sales' id='_805F57F323BD4C86A899589230A20B9A'>
+            <properties context=''>
+              <relation all='true' connection='excel-direct.0m9o8tw04whoxp1bblzw70xsk6lv' include-siblings='false' is-recursive='false' name='Union' path='' type='batch-union'>
+                <database-filter>
+                  <expression op='='>
+                    <expression op='GP_Bookshop.xlsx' />
+                  </expression>
+                </database-filter>
+                <table-filter>
+                  <expression op='='>
+                    <expression op='Sales*' />
+                  </expression>
+                </table-filter>
+                <columns header='yes'>
+                  <column datatype='date' name='Sale Date' />
+                  <column datatype='string' name='ISBN' />
+                  <column datatype='real' name='Discount' />
+                  <column datatype='string' name='ItemID' />
+                  <column datatype='string' name='OrderID' />
+                  <column datatype='string' name='Path' />
+                  <column datatype='string' name='Sheet' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='_805F57F323BD4C86A899589230A20B9A' table='[Extract].[_805F57F323BD4C86A899589230A20B9A]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[Title]' />
+              <expression op='[Title (Award)]' />
+            </expression>
+            <first-end-point object-id='Book_6D0B8BBCBE034C139CEC4134C84889A1' />
+            <second-end-point object-id='Award_4C04D7302D9541ECBF13E14A2AB9201F' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[AuthID]' />
+              <expression op='[AuthID (Book)]' />
+            </expression>
+            <first-end-point object-id='Author_6062FCA143D64F67B3DD8EB481B5102F' />
+            <second-end-point object-id='Book_6D0B8BBCBE034C139CEC4134C84889A1' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[BookID]' />
+              <expression op='[BookID (Checkouts)]' />
+            </expression>
+            <first-end-point object-id='Book_6D0B8BBCBE034C139CEC4134C84889A1' />
+            <second-end-point object-id='Checkouts_80B929CC8FF6426BB380DECBED3678F4' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[BookID]' />
+              <expression op='[BookID (Edition)]' />
+            </expression>
+            <first-end-point object-id='Book_6D0B8BBCBE034C139CEC4134C84889A1' />
+            <second-end-point object-id='Edition_CE1F1ACAB5974A23B8A4F6C382698304' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[BookID]' />
+              <expression op='[BookID1] + [BookID2]&#13;&#10;' />
+            </expression>
+            <first-end-point object-id='Book_6D0B8BBCBE034C139CEC4134C84889A1' />
+            <second-end-point object-id='Info_971762ABC34C4B0DBBA83CDBED8A92F1' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[PubID]' />
+              <expression op='[PubID (Publisher)]' />
+            </expression>
+            <first-end-point object-id='Edition_CE1F1ACAB5974A23B8A4F6C382698304' />
+            <second-end-point object-id='Publisher_3100E324F59541EEAFECEDA10FE781A4' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[BookID]' />
+              <expression op='[BookID (Ratings)]' />
+            </expression>
+            <first-end-point object-id='Book_6D0B8BBCBE034C139CEC4134C84889A1' />
+            <second-end-point object-id='Ratings_7C92F42995F04C0394341587A3745DBF' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[SeriesID]' />
+              <expression op='[SeriesID (Series)]' />
+            </expression>
+            <first-end-point object-id='Info_971762ABC34C4B0DBBA83CDBED8A92F1' />
+            <second-end-point object-id='Series_026B60E95C604369A516B7791D404EC8' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[ISBN]' />
+              <expression op='[ISBN (Union)]' />
+            </expression>
+            <first-end-point object-id='Edition_CE1F1ACAB5974A23B8A4F6C382698304' />
+            <second-end-point object-id='_805F57F323BD4C86A899589230A20B9A' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Step 2.1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run><![CDATA[                   Bubbling ups Success: Visualizing Transaction Volume Over 
+                                           Time - <]]></run>
+            <run>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252239873:nk]</run>
+            <run>&gt; - &lt;</run>
+            <run>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252448770:ok]</run>
+            <run>&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Author+ (GP_Bookshop)' name='federated.1lkzh441vav1gy1h93z2t1yp8rm3' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1lkzh441vav1gy1h93z2t1yp8rm3'>
+            <column caption='StudentID' datatype='string' name='[Calculation_1414296252239873]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='&quot;Trejor6927&quot;' />
+            </column>
+            <column caption='Current Date' datatype='string' datatype-customized='true' name='[Calculation_1414296252448770]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='STR(TODAY())' />
+            </column>
+            <column datatype='string' name='[OrderID]' role='dimension' type='nominal' />
+            <column datatype='date' name='[Sale Date]' role='dimension' type='ordinal' />
+            <column-instance column='[OrderID]' derivation='CountD' name='[ctd:OrderID:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1414296252239873]' derivation='None' name='[none:Calculation_1414296252239873:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1414296252448770]' derivation='None' name='[none:Calculation_1414296252448770:ok]' pivot='key' type='nominal' />
+            <column-instance column='[Sale Date]' derivation='Quarter' name='[qr:Sale Date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Sale Date]' derivation='Year' name='[yr:Sale Date:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='worksheet'>
+            <format attr='in-tooltip' field='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[ctd:OrderID:qk]' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <size column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[ctd:OrderID:qk]' />
+              <color column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[qr:Sale Date:ok]' />
+              <lod column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252239873:nk]' />
+              <lod column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252448770:ok]' />
+              <text column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[ctd:OrderID:qk]' />
+              <text column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[yr:Sale Date:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{688E5A92-9338-4C0D-9E56-CF4C63C5DF39}' />
+    </worksheet>
+    <worksheet name='Step 2.2'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run><![CDATA["Bestsellers and Genres: A Visual Journey Through Literary Popularity" -
+                                                        <]]></run>
+            <run>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252239873:nk]</run>
+            <run>&gt; - &lt;</run>
+            <run>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252448770:ok]</run>
+            <run>&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Author+ (GP_Bookshop)' name='federated.1lkzh441vav1gy1h93z2t1yp8rm3' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1lkzh441vav1gy1h93z2t1yp8rm3'>
+            <column caption='StudentID' datatype='string' name='[Calculation_1414296252239873]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='&quot;Trejor6927&quot;' />
+            </column>
+            <column caption='Current Date' datatype='string' datatype-customized='true' name='[Calculation_1414296252448770]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='STR(TODAY())' />
+            </column>
+            <column datatype='string' name='[Genre]' role='dimension' type='nominal' />
+            <column datatype='string' name='[OrderID]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Title]' role='dimension' type='nominal' />
+            <column-instance column='[OrderID]' derivation='Count' name='[cnt:OrderID:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1414296252239873]' derivation='None' name='[none:Calculation_1414296252239873:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1414296252448770]' derivation='None' name='[none:Calculation_1414296252448770:ok]' pivot='key' type='nominal' />
+            <column-instance column='[Genre]' derivation='None' name='[none:Genre:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Title]' derivation='None' name='[none:Title:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Title:nk]'>
+            <groupfilter count='10' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='COUNT([OrderID])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:Title:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Title:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <size column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[cnt:OrderID:qk]' />
+              <text column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Title:nk]' />
+              <text column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Genre:nk]' />
+              <color column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Genre:nk]' />
+              <text column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[cnt:OrderID:qk]' />
+              <lod column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252239873:nk]' />
+              <lod column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252448770:ok]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run>Genre: &lt;</run>
+                <run>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Genre:nk]</run>
+                <run>&gt;&#10;Title: &lt;</run>
+                <run>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Title:nk]</run>
+                <run>&gt;&#10;Order Count: &lt;</run>
+                <run>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[cnt:OrderID:qk]</run>
+                <run>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{632F69E4-802F-482D-B6AA-E83FB7036341}' />
+    </worksheet>
+    <worksheet name='Step 2.3'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run><![CDATA[Exploring the Relationship between Book Ratings and Sales Volume - <]]></run>
+            <run>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252239873:nk]</run>
+            <run>&gt; - &lt;</run>
+            <run>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252448770:ok]</run>
+            <run>&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Author+ (GP_Bookshop)' name='federated.1lkzh441vav1gy1h93z2t1yp8rm3' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1lkzh441vav1gy1h93z2t1yp8rm3'>
+            <column caption='StudentID' datatype='string' name='[Calculation_1414296252239873]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='&quot;Trejor6927&quot;' />
+            </column>
+            <column caption='Current Date' datatype='string' datatype-customized='true' name='[Calculation_1414296252448770]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='STR(TODAY())' />
+            </column>
+            <column datatype='string' name='[OrderID]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Rating]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Title]' role='dimension' type='nominal' />
+            <column-instance column='[Rating]' derivation='Avg' name='[avg:Rating:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[OrderID]' derivation='Count' name='[cnt:OrderID:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1414296252239873]' derivation='None' name='[none:Calculation_1414296252239873:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1414296252448770]' derivation='None' name='[none:Calculation_1414296252448770:ok]' pivot='key' type='nominal' />
+            <column-instance column='[Title]' derivation='None' name='[none:Title:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Title:nk]' />
+              <lod column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252239873:nk]' />
+              <lod column='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252448770:ok]' />
+            </encodings>
+            <trendline enable-confidence-bands='false' enable-instant-analytics='true' enabled='true' exclude-color='false' exclude-intercept='false' fit='linear' />
+          </pane>
+        </panes>
+        <rows>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[avg:Rating:qk]</rows>
+        <cols>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[cnt:OrderID:qk]</cols>
+      </table>
+      <simple-id uuid='{8C4E7576-A186-4EE1-A931-C8E0BFCEF123}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Story 1' type='storyboard'>
+      <layout-options>
+        <title>
+          <formatted-text />
+        </title>
+      </layout-options>
+      <style>
+        <style-rule element='story-point-caption'>
+          <format attr='width' value='403' />
+        </style-rule>
+      </style>
+      <size maxheight='964' maxwidth='1016' minheight='964' minwidth='1016' />
+      <zones>
+        <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98340' id='1' param='vert' removable='false' type-v2='layout-flow' w='98426' x='787' y='830'>
+            <zone h='1037' id='3' type-v2='title' w='98426' x='787' y='830' />
+            <zone fixed-size='167' h='17324' id='4' is-fixed='true' paired-zone-id='5' removable='false' type-v2='flipboard-nav' w='98426' x='787' y='1867' />
+            <zone h='79979' id='5' paired-zone-id='4' removable='false' type-v2='flipboard' w='98426' x='787' y='19191'>
+              <flipboard active-id='3' nav-type='caption' show-nav-arrows='true'>
+                <story-points>
+                  <story-point caption='Seasonal Sales Trends Unveiled: Q3 Leads the Way with 19K&#10;Transactions, Showcasing a Peak in Consumer Purchasing.&#10;Following closely, Q2 and Q4 both present robust sales with&#10;11K transactions each, while Q1 marks the calm before the&#10;storm with 6K transactions. - Trejor6927 - 3/16/2026' captured-sheet='Step 2.1' id='1' />
+                  <story-point caption='Sci/Fantasy Dominates the Charts: Holding 4 of the Top 10&#10;Spots in Reader Preferences. Mystery and Children&apos;s Genres&#10;Secure Their Appeal with 2 Spots Each. Young Adult and&#10;Romance, Not Far Behind, Claim Their Stake with 1 Spot Each.&#10;This Diverse Literary Landscape Reflects Varied Reader Tastes&#10;and the Rising Popularity of SciFi/Fantasy - Trejor6927 - 3/16/2026' captured-sheet='Step 2.2' id='2' />
+                  <story-point caption='Ratings and Sales: An Emerging Pattern Suggests a Positive&#10;Correlation, Indicating That Books with Higher Ratings Tend to&#10;Attract More Orders, Though the Trend Is Not Uniform Across&#10;All Ratings. - Trejor6927 - 3/16/2026' captured-sheet='Step 2.3' id='3' />
+                </story-points>
+              </flipboard>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <simple-id uuid='{055D7852-3A3A-4261-AABF-63D1C4858BD7}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Step 2.1'>
+      <cards>
+        <edge name='left'>
+          <strip size='259'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[qr:Sale Date:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252239873:nk]</field>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252448770:ok]</field>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:OrderID:nk]</field>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[qr:Sale Date:ok]</field>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[yr:Calculation_1414296252448770:ok]</field>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[yr:Sale Date:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{AEAD4165-1C80-4B85-84EC-27D829B3D794}' />
+    </window>
+    <window class='worksheet' name='Step 2.2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Genre:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252239873:nk]</field>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252448770:ok]</field>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Genre:nk]</field>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:OrderID:nk]</field>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Title:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{42E92EE2-ABE7-4B8D-8647-AE28B715D988}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Step 2.3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252239873:nk]</field>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Calculation_1414296252448770:ok]</field>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:OrderID:nk]</field>
+            <field>[federated.1lkzh441vav1gy1h93z2t1yp8rm3].[none:Title:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{5D51B38B-746C-4CC7-AC60-C7621C82BFB1}' />
+    </window>
+    <window class='dashboard' name='Story 1'>
+      <viewpoints />
+      <active id='5' />
+      <simple-id uuid='{F0B22234-15A1-4AB8-8766-469ABF4A745F}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Step 2.1' width='192'>
+      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
+      gg==
+    </thumbnail>
+    <thumbnail height='192' name='Step 2.2' width='192'>
+      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
+      YII=
+    </thumbnail>
+    <thumbnail height='192' name='Step 2.3' width='192'>
+      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
+      zMTpKH/sAAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Story 1' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
